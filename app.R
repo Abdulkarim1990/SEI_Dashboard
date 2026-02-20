@@ -262,189 +262,59 @@ ui <- dashboardPage(skin = "yellow",
             .container-fluid, .navbar {
               width: 100%;
               padding: 0 !important;
-              margin: 0 !important;
+              margin:0 !important;
             }
 
-            h2 {
-              text-align: center;
-              background-color: #336699;
-              color: white;
-              padding: 15px;
-              border-radius: 5px;
-            }
-
-            /* Hero section */
-            .hero-section {
+            .landing-wrapper {}
+            .landing-wrapper .landing-block {
               width: 100%;
-              min-height: calc(100vh - 50px);
-              background-image:
-                linear-gradient(rgba(0, 30, 60, 0.65), rgba(0, 30, 60, 0.65)),
-                url('../images/students4.png');
+              height: 100vh;
+              background-image: url('../images/students4.png');
               background-size: cover;
               background-position: center;
               background-repeat: no-repeat;
-              background-color: #1a3a5c;
+            }
+
+            .landing-wrapper .foreground-content {
+              position: absolute;
+              top: 10%;
+              z-index: 9999;
               display: flex;
-              flex-direction: column;
               justify-content: center;
               align-items: center;
-              padding: 50px 20px 40px;
-              gap: 28px;
             }
 
-            /* Hero card */
-            .hero-card {
-              background: rgba(255, 255, 255, 0.97);
-              border-radius: 12px;
-              box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
-              padding: 40px 50px;
-              max-width: 680px;
-              width: 90%;
+            .landing-wrapper .foreground-content .foreground-text {
+              width: 50%;
+              padding: 7.5%;
+              color: black;
+              background-color: white;
               text-align: center;
+              border-radius: 15px;
+              box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
             }
 
-            .hero-badge {
-              font-size: 0.78rem;
-              text-transform: uppercase;
-              letter-spacing: 1.2px;
-              color: #336699;
-              font-weight: 700;
-              margin-bottom: 14px;
-            }
-
-            .hero-divider {
-              width: 55px;
-              height: 3px;
-              background: #336699;
-              margin: 14px auto;
-              border-radius: 2px;
-            }
-
-            .hero-title {
-              font-size: 2.1rem;
-              font-weight: 700;
-              color: #1a2e4a;
-              margin: 0 0 4px;
-              letter-spacing: -0.3px;
-            }
-
-            .hero-subtitle {
-              font-size: 1rem;
-              color: #555;
-              margin: 0 0 16px;
-              line-height: 1.5;
-            }
-
-            .hero-description {
-              font-size: 0.93rem;
-              color: #666;
-              line-height: 1.75;
-              margin-bottom: 22px;
-            }
-
-            .hero-nav-buttons {
-              display: flex;
-              flex-wrap: wrap;
-              gap: 10px;
-              justify-content: center;
-              margin-top: 8px;
-            }
-
-            .hero-nav-btn {
-              background-color: #336699 !important;
-              color: white !important;
-              border: none !important;
-              border-radius: 6px !important;
-              padding: 8px 18px !important;
-              font-size: 0.88rem !important;
-              font-weight: 500 !important;
-              cursor: pointer;
-              transition: background-color 0.2s ease;
-            }
-
-            .hero-nav-btn:hover,
-            .hero-nav-btn:focus {
-              background-color: #264d73 !important;
-              color: white !important;
-            }
-
-            /* Stat cards */
-            .stat-cards-row {
-              display: flex;
-              flex-wrap: wrap;
-              gap: 16px;
-              justify-content: center;
-              max-width: 860px;
-              width: 90%;
-            }
-
-            .stat-card {
-              background: rgba(255, 255, 255, 0.14);
-              border: 1px solid rgba(255, 255, 255, 0.3);
-              border-radius: 10px;
-              padding: 20px 30px;
-              text-align: center;
-              min-width: 155px;
-            }
-
-            .stat-number {
-              font-size: 1.9rem;
-              font-weight: 700;
-              color: white;
-              display: block;
-            }
-
-            .stat-label {
-              font-size: 0.75rem;
-              color: rgba(255, 255, 255, 0.82);
-              text-transform: uppercase;
-              letter-spacing: 0.6px;
-              margin-top: 5px;
-              display: block;
-            }
-                                  "))
+            .landing-wrapper .foreground-content .foreground-text h1 {font-size: 4.5rem;}
+            .landing-wrapper .foreground-content .foreground-text p {font-size: 2.5rem;}
+            
+           h2 {
+                    text-align: center;
+                    background-color: #336699;
+                    color: white;
+                    padding: 15px;
+                    border-radius: 5px;
+                }
+            "))
                                 ),
-                                div(class = "hero-section",
-                                    div(class = "hero-card",
-                                        div(class = "hero-badge",
-                                            "Ghana Education Service | T-TEL"
-                                        ),
-                                        div(class = "hero-divider"),
-                                        h1(class = "hero-title", "SEI Dashboard"),
-                                        p(class = "hero-subtitle",
-                                          "Secondary Education Improvement Programme — Data Monitoring & Analytics"),
-                                        p(class = "hero-description",
-                                          "This dashboard visualises data from Ghana's secondary schools, covering Professional Learning Community (PLC) attendance, school access and lesson observation quality, virtual learning, and tablet distribution across all regions."),
-                                        div(class = "hero-divider"),
-                                        p(style = "font-size:0.85rem; color:#888; margin-bottom:14px;",
-                                          "Select a section below or use the sidebar to navigate."),
-                                        div(class = "hero-nav-buttons",
-                                            actionButton("home_goto_plc", "PLC Attendance",
-                                                         class = "hero-nav-btn"),
-                                            actionButton("home_goto_access", "Access & Quality",
-                                                         class = "hero-nav-btn"),
-                                            actionButton("home_goto_vlc", "VLC Attendance",
-                                                         class = "hero-nav-btn"),
-                                            actionButton("home_goto_tablet", "Tablet Distribution",
-                                                         class = "hero-nav-btn")
-                                        )
-                                    ),
-                                    div(class = "stat-cards-row",
-                                        div(class = "stat-card",
-                                            uiOutput("home_stat_regions"),
-                                            tags$span(class = "stat-label", "Regions")
-                                        ),
-                                        div(class = "stat-card",
-                                            uiOutput("home_stat_schools"),
-                                            tags$span(class = "stat-label", "Schools")
-                                        ),
-                                        div(class = "stat-card",
-                                            tags$span(class = "stat-number", "5"),
-                                            tags$span(class = "stat-label", "PLC Handbooks")
-                                        ),
-                                        div(class = "stat-card",
-                                            uiOutput("home_stat_years"),
-                                            tags$span(class = "stat-label", "Academic Years")
+                                div(class = "landing-wrapper",
+                                    div(class = "landing-block"),
+                                    div(class = "landing-block foreground-content",
+                                        div(class = "foreground-text",
+                                            h1("Welcome!!!"),
+                                            p("This dashboard is designed to visualise data from the secondary schools."),
+                                            p("The dashboard displays data on Professional Learning Community (PLC) Sessions, Access, and Quality."),
+                                            p("Please choose a menu from the sidebar to continue!"),
+                                            div(class = "stat-box")
                                         )
                                     )
                                 )
@@ -2529,36 +2399,6 @@ strategies.</p>
 ####### This section contains the codes for analysing the data that are then displayed at the UI
 server <- function(input, output, session) {
   
-  # ---- Home page: stat summary outputs ----
-  output$home_stat_regions <- renderUI({
-    n <- tryCatch(dplyr::n_distinct(plc_data_new$Region), error = function(e) "—")
-    tags$span(class = "stat-number", as.character(n))
-  })
-
-  output$home_stat_schools <- renderUI({
-    n <- tryCatch(dplyr::n_distinct(plc_data_new$Name_school), error = function(e) "—")
-    tags$span(class = "stat-number", as.character(n))
-  })
-
-  output$home_stat_years <- renderUI({
-    n <- tryCatch(dplyr::n_distinct(access_data$year_access), error = function(e) "—")
-    tags$span(class = "stat-number", as.character(n))
-  })
-
-  # ---- Home page: navigation button observers ----
-  observeEvent(input$home_goto_plc, {
-    updateTabItems(session, "sidebarMenu", "plc_attendance")
-  })
-  observeEvent(input$home_goto_access, {
-    updateTabItems(session, "sidebarMenu", "access")
-  })
-  observeEvent(input$home_goto_vlc, {
-    updateTabItems(session, "sidebarMenu", "VLC")
-  })
-  observeEvent(input$home_goto_tablet, {
-    updateTabItems(session, "sidebarMenu", "tablet")
-  })
-
   
   ##################################notification code
   
